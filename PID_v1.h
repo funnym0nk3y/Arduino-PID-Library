@@ -32,29 +32,30 @@ class PID
                                           //   SetSampleTime respectively
 
     void SetOutputLimits(double, double); // * clamps the output to a specific range. 0-255 by default, but
-										                      //   it's likely the user will want to change this depending on
-										                      //   the application
+										  //   it's likely the user will want to change this depending on
+										  //   the application
 	
 
 
   //available but not commonly used functions ********************************************************
     void SetTunings(double, double,       // * While most users will set the tunings once in the 
-                    double);         	    //   constructor, this function gives the user the option
+                    double);         	  //   constructor, this function gives the user the option
                                           //   of changing tunings during runtime for Adaptive control
     void SetTunings(double, double,       // * overload for specifying proportional mode
-                    double, int);         	  
-
-	void SetControllerDirection(int);	  // * Sets the Direction, or "Action" of the controller. DIRECT
-										  //   means the output will increase when error is positive. REVERSE
-										  //   means the opposite.  it's very unlikely that this will be needed
-										  //   once it is set in the constructor.
+                    double, int);
+	
+    void SetControllerDirection(int);	  // * Sets the Direction, or "Action" of the controller. DIRECT
+					                      //   means the output will increase when error is positive. REVERSE
+					                      //   means the opposite.  it's very unlikely that this will be needed
+					                      //   once it is set in the constructor.
+	
     void SetSampleTime(int);              // * sets the frequency, in Milliseconds, with which 
                                           //   the PID calculation is performed.  default is 100
 										  
 										  
 										  
   //Display functions ****************************************************************
-	double GetKp();						  // These functions query the pid for interal values.
+	double GetKp();						  // These functions query the pid for internal values.
 	double GetKi();						  //  they were created mainly for the pid front-end,
 	double GetKd();						  // where it's important to know what is actually 
 	int GetMode();						  //  inside the PID.
